@@ -1,0 +1,15 @@
+{
+  "name": "TRU Movilidad Urbana",
+  "short_name": "TRU Motos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0C2048",
+  "icons": [
+    {
+      "src": "/logo-tru.png",
+      "sizes": "1000x662",
+      "type": "image/png"
+    }
+  ]
+}
