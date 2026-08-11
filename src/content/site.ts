@@ -41,8 +41,8 @@ export const site = {
     {
       title: 'Okinoi 110',
       description: 'Ideal para moverte a diario con bajo consumo, manejo liviano y tecnología práctica para recorridos urbanos.',
-      image: '/motos/okinoi-110-shadowless.png',
-      imageAlt: 'Moto Okinoi 110 azul sobre fondo blanco',
+      image: '/motos/okinoi-110-gris.webp',
+      imageAlt: 'Moto Okinoi 110 gris de perfil sobre fondo transparente',
       imageScale: 1.05,
       specifications: [
         { label: 'Cilindrada', value: '110 cc, monocilíndrico de 4 tiempos' },
@@ -83,10 +83,10 @@ export const site = {
     {
       title: 'Kamax 125',
       description: 'Una cub versátil para uso diario o laboral, con buena respuesta, equipamiento moderno y autonomía extendida.',
-      image: '/motos/kamax-125-uniform.jpg',
-      imageAlt: 'Moto Kamax Cub Pro 125 celeste de perfil sobre fondo blanco',
-      imageScale: 0.98,
-      imageFlip: true,
+      image: '/motos/kamax-125-negra.png',
+      imageAlt: 'Moto Kamax 125 negra en vista de tres cuartos sobre fondo blanco',
+      imageScale: 1.02,
+      imageOffsetY: 6,
       specifications: [
         { label: 'Motor', value: 'Monocilíndrico 4 tiempos de 125 cc, refrigerado por aire' },
         { label: 'Transmisión', value: 'Semiautomática de 4 velocidades' },
