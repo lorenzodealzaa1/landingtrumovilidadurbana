@@ -98,7 +98,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .catalog-reveal .bike-card { height: 100%; }
 .bike-card { overflow: hidden; display: flex; flex-direction: column; min-width: 0; background: #ffffff; border: 1px solid #dde4ec; border-radius: 18px; box-shadow: 0 14px 34px rgba(12,32,72,.08); }
 .bike-card__media { width: 100%; aspect-ratio: 1; position: relative; overflow: hidden; background: radial-gradient(ellipse 40% 7% at 50% 78%, rgba(12,32,72,.22), rgba(12,32,72,.08) 42%, transparent 72%), #ffffff; border-bottom: 1px solid #e6ebf1; }
-.bike-card__badge { min-width: 102px; height: 26px; position: absolute; z-index: 2; top: 12px; left: 50%; display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 0 11px; color: #ffffff; background: linear-gradient(105deg, #0c2048 0%, #173b70 48%, #4cadc4 100%); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; box-shadow: 0 7px 16px rgba(12,32,72,.14); font-size: 11px; font-weight: 600; letter-spacing: .02em; line-height: 1; white-space: nowrap; transform: translateX(-50%); }
+.bike-card__badge { min-width: 102px; height: 26px; position: absolute; z-index: 2; top: 12px; left: 50%; display: inline-flex; overflow: hidden; isolation: isolate; align-items: center; justify-content: center; gap: 5px; padding: 0 11px; color: #ffffff; background-color: #173b70; background-image: linear-gradient(105deg, #0c2048 0%, #173b70 48%, #4cadc4 100%); border: 0; border-radius: 999px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), 0 7px 16px rgba(12,32,72,.14); font-size: 11px; font-weight: 600; letter-spacing: .02em; line-height: 1; white-space: nowrap; transform: translateX(-50%); backface-visibility: hidden; }
 .bike-card__badge svg { flex: 0 0 auto; color: #ffd75a; fill: #ffd75a; filter: drop-shadow(0 1px 2px rgba(7,20,46,.2)); }
 .bike-card__badge-label { display: block; padding-top: 1px; line-height: 1; }
 .bike-card__image { width: 100%; height: 100%; padding: 24px; object-fit: contain; object-position: center; mix-blend-mode: multiply; transform: translateY(var(--bike-image-offset-y, 0)) scaleX(var(--bike-image-direction, 1)) scale(var(--bike-image-scale, 1)); transform-origin: center; }
@@ -108,18 +108,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .bike-card__actions { display: grid; gap: 10px; margin-top: auto; padding-top: 22px; }
 .bike-card__details-button, .bike-card__cta { width: 100%; }
 
-.specifications-dialog { width: min(570px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 0; color: #0c2048; background: transparent; border: 0; border-radius: 22px; box-shadow: 0 30px 90px rgba(7,20,46,.35); }
+.specifications-dialog { width: min(570px, calc(100% - 32px)); height: min(560px, calc(100dvh - 32px)); max-height: none; padding: 0; color: #0c2048; background: transparent; border: 0; border-radius: 22px; box-shadow: 0 30px 90px rgba(7,20,46,.35); }
 .specifications-dialog::backdrop { background: rgba(7,20,46,.72); backdrop-filter: blur(5px); }
-.specifications-dialog__panel { max-height: calc(100dvh - 32px); position: relative; overflow-y: auto; padding: 34px; background: #ffffff; border: 1px solid rgba(76,173,196,.26); border-radius: 22px; }
+.specifications-dialog__panel { height: 100%; position: relative; display: grid; overflow: hidden; grid-template-rows: auto auto minmax(0, 1fr) auto; padding: 34px; background: #ffffff; border: 1px solid rgba(76,173,196,.26); border-radius: 22px; }
 .specifications-dialog__close { width: 40px; height: 40px; display: inline-flex; position: absolute; top: 18px; right: 18px; align-items: center; justify-content: center; color: #0c2048; background: #eef4f7; border: 1px solid #d7e1e9; border-radius: 12px; cursor: pointer; }
 .specifications-dialog__close:hover { color: #ffffff; background: #0c2048; }
 .specifications-dialog h2 { max-width: calc(100% - 52px); margin: 0; font-size: clamp(1.8rem, 5vw, 2.45rem); line-height: 1.05; letter-spacing: -.035em; }
 .specifications-dialog__panel > p { margin: 15px 0 0; color: #657386; font-size: 15px; line-height: 1.65; }
-.specifications-list { display: grid; margin: 24px 0 0; }
+.specifications-list { display: grid; min-height: 0; align-content: start; overflow-y: auto; overscroll-behavior: contain; margin: 20px -8px 0 0; padding-right: 8px; scrollbar-color: #91cbd9 #eef4f7; scrollbar-width: thin; }
+.specifications-list::-webkit-scrollbar { width: 7px; }
+.specifications-list::-webkit-scrollbar-track { background: #eef4f7; border-radius: 999px; }
+.specifications-list::-webkit-scrollbar-thumb { background: #91cbd9; border-radius: 999px; }
 .specifications-list div { display: grid; grid-template-columns: minmax(112px, .42fr) 1fr; gap: 16px; padding: 15px 0; border-top: 1px solid #dfe6ee; }
 .specifications-list dt { color: #277e94; font-weight: 600; }
 .specifications-list dd { margin: 0; color: #263a55; line-height: 1.5; }
-.specifications-dialog__cta { width: 100%; margin-top: 24px; }
+.specifications-dialog__cta { width: 100%; position: relative; z-index: 2; margin-top: 18px; }
 
 .section--about { background: linear-gradient(180deg, #f4f7fa 0, #ffffff 150px, #ffffff 100%); }
 .about-grid { display: grid; align-items: center; gap: 34px; }
@@ -262,6 +265,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .happy-clients__track { animation-duration: 68s; }
   .happy-clients__group { gap: 0; padding-right: 0; }
   .happy-clients__image { width: 220px; border-radius: 0; }
+  .specifications-dialog { width: min(570px, calc(100% - 24px)); height: min(540px, calc(100dvh - 24px)); }
   .specifications-dialog__panel { padding: 28px 22px 22px; }
   .specifications-dialog__close { top: 14px; right: 14px; }
   .specifications-list div { grid-template-columns: 1fr; gap: 4px; }
