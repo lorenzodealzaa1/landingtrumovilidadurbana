@@ -2,8 +2,8 @@
 
 ## Datos generales
 
-- Teléfono: 351 859-8650
-- WhatsApp: https://wa.me/3518598650
+- Teléfono: 351 890-0222
+- WhatsApp: https://wa.me/3518900222
 - Email: PENDIENTE CLIENTE
 - Dirección:
   - Blvd. Las Heras 264

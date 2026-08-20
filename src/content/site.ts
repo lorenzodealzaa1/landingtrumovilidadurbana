@@ -1,4 +1,4 @@
-const whatsappBase = 'https://wa.me/3518598650'
+const whatsappBase = 'https://wa.me/3518900222'
 
 export function whatsappUrl(message: string) {
   return `${whatsappBase}?text=${encodeURIComponent(message)}`
@@ -23,7 +23,7 @@ export const site = {
     href: whatsappUrl('Hola TRU, quiero consultar por una moto.'),
   },
   contact: {
-    phone: '351 859-8650',
+    phone: '351 890-0222',
     whatsappUrl: whatsappUrl('Hola TRU, quiero recibir asesoramiento para elegir mi próxima moto.'),
     instagram: 'https://www.instagram.com/trumovilidadurbana/',
   },
